@@ -1,0 +1,16 @@
+/bin/*
+/packages/*
+/obj/*
+/photos/*
+/app_data/*
+# Package Files #
+*.exe
+*.pdb
+*.obj
+*.dll
+
+/scripts/*
+/fonts/*
+
+/upload.bat
+
