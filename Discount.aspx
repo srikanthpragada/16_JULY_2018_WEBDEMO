@@ -6,11 +6,17 @@
     protected void btnCalculate_Click(object sender, EventArgs e)
     {
         double amount, rate, discount;
-
-        amount = Double.Parse(txtAmount.Text);
-        rate = Double.Parse(txtRate.Text);
-        discount = amount * rate / 100;
-        lblDiscount.Text = discount.ToString(); 
+        try
+        {
+            amount = Double.Parse(txtAmount.Text);
+            rate = Double.Parse(txtRate.Text);
+            discount = amount * rate / 100;
+            lblDiscount.Text = discount.ToString();
+        }
+        catch(FormatException ex)
+        {
+            lblDiscount.Text = "Invalid Input!";
+        }
     }
 </script>
 
@@ -22,10 +28,10 @@
     <form id="form1" runat="server">
         <h1>Discount Calculation</h1>
         Amount <br />
-        <asp:TextBox ID="txtAmount" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtAmount"  TextMode="Number" runat="server"></asp:TextBox>
         <p />
         Discount Rate <br />
-        <asp:TextBox ID="txtRate" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtRate" runat="server"  TextMode="Number" ></asp:TextBox>
         <p />
         <asp:Button ID="btnCalculate" runat="server" Text="Calculate"
                   OnClick="btnCalculate_Click" />
