@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" %>
+<%@ Import Namespace="System.IO" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +10,19 @@
         if (! FileUpload1.HasFile)
         {
             lblMessage.Text = "Please select a file to upload!";
-            return; 
+            return;
+        }
+
+        // open file and take mobile numbers
+        StreamReader reader = new StreamReader(FileUpload1.PostedFile.InputStream);
+        while (true)
+        {
+            String line = reader.ReadLine();
+            if (line == null)
+                break;
+
+            if (line.Trim().Length > 0)
+                Response.Write(txtMessage.Text + " to " + line + "<br/>");
         }
 
     }
