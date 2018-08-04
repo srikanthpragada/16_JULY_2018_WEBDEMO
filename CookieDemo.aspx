@@ -36,7 +36,7 @@
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        Response.Write("Page Load!" + DateTime.Now.ToString());
+        Trace.Write("Page Load!" + DateTime.Now.ToString());
     }
 </script>
 
