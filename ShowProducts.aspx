@@ -12,14 +12,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <h2>List Of Products</h2>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:localdb %>" 
             SelectCommand="SELECT * FROM [products]"></asp:SqlDataSource>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
+        <asp:GridView ID="GridView1" runat="server"
+            AutoGenerateColumns="False" 
             DataKeyNames="prodid" 
-            DataSourceID="SqlDataSource1">
+            DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True" PageSize="5" Width="100%">
             <Columns>
                 <asp:BoundField DataField="prodid" HeaderText="prodid" InsertVisible="False" ReadOnly="True" SortExpression="prodid" />
                 <asp:BoundField DataField="prodname" HeaderText="prodname" SortExpression="prodname" />
